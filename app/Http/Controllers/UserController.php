@@ -132,7 +132,8 @@ class UserController extends Controller
     {
         return [
             'name' => 'required',
-            'email' => 'required|email',
+            'username' => 'required',
+//            'email' => 'required|email',
             'role' => [
                 'required',
                 'not_in:admin',

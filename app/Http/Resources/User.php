@@ -17,7 +17,8 @@ class User extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'email' => $this->email,
+            'username' => $this->username,
+//            'email' => $this->email,
             'role' => $this->role,
             'roles' => [$this->role],
             'avatar' => 'http://i.pravatar.cc',

@@ -28,12 +28,15 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = [
+            'username' => $request->get('email'),
+            'password' =>  $request->get('password'),
+        ];
         if ($token = $this->guard()->attempt($credentials)) {
+//            return response()->json(new JsonResponse([], 'ok ca passe'), Response::HTTP_UNAUTHORIZED);
             return response()->json(new UserResource(Auth::user()), Response::HTTP_OK)->header('Authorization', $token);
         }
-
-        return response()->json(new JsonResponse([], 'login_error'), Response::HTTP_UNAUTHORIZED);
+        return response()->json(new JsonResponse([], 'Erreur de connexion verifier votre login ou mot de passe'), Response::HTTP_UNAUTHORIZED);
     }
 
     public function logout()

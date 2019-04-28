@@ -67,7 +67,8 @@ class UsersTableSeeder extends Seeder
             $name = str_replace(' ', '.', $fullName);
             \App\User::create([
                 'name' => $fullName,
-                'email' => strtolower($name) . '@laravue.dev',
+                'username' => $fullName,
+//                'email' => strtolower($name) . '@laravue.dev',
                 'password' => \Illuminate\Support\Facades\Hash::make(strtolower($name)),
                 'role' => \App\Laravue\Faker::randomInArray(['editor', 'user']),
             ]);

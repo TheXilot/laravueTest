@@ -39,19 +39,19 @@
 
 <script>
 import LangSelect from '@/components/LangSelect';
-import { validEmail } from '@/utils/validate';
+// import { validEmail } from '@/utils/validate';
 
 export default {
   name: 'Login',
   components: { LangSelect },
   data() {
-    const validateEmail = (rule, value, callback) => {
-      if (!validEmail(value)) {
-        callback(new Error('Please enter the correct email'));
-      } else {
-        callback();
-      }
-    };
+    // const validateEmail = (rule, value, callback) => {
+    //   if (!validEmail(value)) {
+    //     callback(new Error('Please enter the correct email'));
+    //   } else {
+    //     callback();
+    //   }
+    // };
     const validatePass = (rule, value, callback) => {
       if (value.length < 4) {
         callback(new Error('Password cannot be less than 4 digits'));
@@ -65,7 +65,7 @@ export default {
         password: 'admin',
       },
       loginRules: {
-        email: [{ required: true, trigger: 'blur', validator: validateEmail }],
+        // email: [{ required: true, trigger: 'blur', validator: validateEmail }],
         password: [{ required: true, trigger: 'blur', validator: validatePass }],
       },
       loading: false,
